@@ -6,10 +6,7 @@ use App\Model;
 
 class Article extends Model
 {
-    public const TABLE = 'news';
+    protected const TABLE = 'news';
     public $title;
     public $content;
-
-
-
 }

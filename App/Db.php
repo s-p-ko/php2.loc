@@ -2,7 +2,6 @@
 
 namespace App;
 
-
 class Db
 {
     protected $dbh;
@@ -20,20 +19,20 @@ class Db
         );
     }
 
-    /**Process request from models
+    /**
+     * Executes queries and return data
      * @param string $sql
      * @param array $params
      * @param string $class
      * @return array
      */
-    public function query(string $sql, array $params = [], string $class =
+    public function query (string $sql, array $params = [], string $class =
     null) : array
     {
         $sth = $this->dbh->prepare($sql);
         $sth->execute($params);
-        $sth->setFetchMode(\PDO::FETCH_ASSOC);
         if (null === $class) {
-            return $sth->fetchAll();
+            return $sth->fetchAll(\PDO::FETCH_ASSOC);
         }
         return $sth->fetchAll(\PDO::FETCH_CLASS, $class);
     }
@@ -44,7 +43,7 @@ class Db
      * @param array $params
      * @return bool
      */
-    public function execute(string $sql, array $params = []) : bool
+    public function execute (string $sql, array $params = []) : bool
     {
         return $this->dbh->prepare($sql)->execute($params);
     }
