@@ -25,7 +25,7 @@ abstract class Model
      * @return mixed
      * @throws Exceptions\DbException
      */
-    public static function findById ($id)
+    public static function findById($id)
     {
         $db = new \App\Db();
         $sql = 'SELECT * FROM ' . static::TABLE . ' WHERE id = :id LIMIT 1';
@@ -40,7 +40,7 @@ abstract class Model
      * @return mixed
      * @throws Exceptions\DbException
      */
-    public static function findAllLast (int $limit = 3)
+    public static function findAllLast(int $limit = 3)
     {
         $db = new \App\Db();
         $sql = 'SELECT * FROM ' . static::TABLE . ' ORDER BY id DESC LIMIT ' . $limit;

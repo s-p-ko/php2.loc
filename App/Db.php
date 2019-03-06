@@ -26,7 +26,7 @@ class Db
      * @param string $class
      * @return array
      */
-    public function query (string $sql, array $params = [], string $class =
+    public function query(string $sql, array $params = [], string $class =
     null) : array
     {
         $sth = $this->dbh->prepare($sql);
@@ -43,7 +43,7 @@ class Db
      * @param array $params
      * @return bool
      */
-    public function execute (string $sql, array $params = []) : bool
+    public function execute(string $sql, array $params = []) : bool
     {
         return $this->dbh->prepare($sql)->execute($params);
     }
