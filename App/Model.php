@@ -46,4 +46,35 @@ abstract class Model
         $res = $db->query($sql, [], static::class);
         return $res ? : false;
     }
+
+    /**
+     * Inserts data into table
+     * @throws Exceptions\DbException
+     */
+    public function insert()
+    {
+        $db = new \App\Db();
+
+        $props = get_object_vars($this);
+
+        $fields = [];
+        $binds = [];
+        $data = [];
+        foreach ($props as $name => $value) {
+            if ('id' == $name) {
+                continue;
+            }
+            $fields[] = $name;
+            $binds[] = ':' . $name;
+            $data[':' . $name] = $value;
+        }
+        $sql = '
+            INSERT INTO ' . static::TABLE .
+            ' (' . implode(', ', $fields) . ')
+            VALUES
+             (' . implode(', ', $binds) . ')
+             ';
+        $db->execute($sql, $data);
+        $this->id = $db->lastInsertId();
+    }
 }
