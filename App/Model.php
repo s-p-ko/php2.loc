@@ -54,9 +54,7 @@ abstract class Model
     public function insert()
     {
         $db = new \App\Db();
-
         $props = get_object_vars($this);
-
         $fields = [];
         $binds = [];
         $data = [];
@@ -76,5 +74,29 @@ abstract class Model
              ';
         $db->execute($sql, $data);
         $this->id = $db->lastInsertId();
+    }
+
+    /**
+     * Updates data in row of table
+     * @throws Exceptions\DbException
+     */
+    public function update()
+    {
+        $db = new \App\Db();
+        $cols = [];
+        $data = [];
+        foreach ($this as $name => $value) {
+            $data[':' . $name] = $value;
+            if ('id' == $name) {
+                continue;
+            }
+            $cols[] = $name .  ' = :' . $name;
+        }
+        $sql = '
+            UPDATE ' . static::TABLE . ' 
+            SET ' . implode(', ', $cols) . ' 
+            WHERE id = :id
+            ';
+        $db->execute($sql, $data);
     }
 }

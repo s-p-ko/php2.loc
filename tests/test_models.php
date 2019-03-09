@@ -19,10 +19,17 @@ use App\Models\User;
 //var_dump($artcl->insert());die;
 
 ////test public function insert() of abstract class Model
-//$artcl = new User();
-//$artcl->email = 'insert@test.com';
-//$artcl->password = 'test_insert';
-//var_dump($artcl->insert());die;
+//$us = new User();
+//$us->email = 'insert@test.com';
+//$us->password = 'test_insert';
+//var_dump($us->insert());die;
+
+////test public function update() of abstract class Model
+//$artcl = new Article();
+//$artcl->id = 15;
+//$artcl->title = 'Title test update1';
+//$artcl->content = 'Contetnt test update1';
+//var_dump($artcl->update());die;
 
 
 assert( 'array' === gettype( Article::findAll() ) );
