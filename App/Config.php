@@ -4,13 +4,25 @@ namespace App;
 class Config
 {
     public $data;
+    protected static $instance;
 
     /**
      * Config constructor.
      */
-    public function __construct()
+    protected function __construct()
     {
         $configPath = __DIR__ . '/../config.php';
         $this->data = include($configPath);
+    }
+
+    /**
+     * @return Config
+     */
+    public static function instance() : self
+    {
+        if (null === self::$instance) {
+            self::$instance = new self();
+        }
+        return self::$instance;
     }
 }
