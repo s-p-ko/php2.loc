@@ -99,4 +99,25 @@ abstract class Model
             ';
         $db->execute($sql, $data);
     }
+
+    /**
+     * Selects which this class's method to apply: insert() or update()
+     * @throws Exceptions\DbException
+     */
+    public function save()
+    {
+        (isset($this->id)) ? $this->update() : $this->insert();
+    }
+
+    /**
+     * Deletes chosen object by its id
+     * @throws Exceptions\DbException
+     */
+    public function delete()
+    {
+        $db = new \App\Db();
+        $sql = 'DELETE FROM ' . static::TABLE . ' WHERE id = :id LIMIT 1';
+        $data = [':id' => $this->id];
+        $db->execute($sql, $data);
+    }
 }
