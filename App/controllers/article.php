@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/autoload.php';
+require __DIR__ . '/../../autoload.php';
 
 use App\Models\Article;
 
@@ -10,5 +10,5 @@ if (false == $id || false == $data ) {
     header('Location: /');
     exit();
 } else {
-    include __DIR__ . '/templates/article.php';
+    include __DIR__ . '/../../templates/article.php';
 }

@@ -8,11 +8,12 @@
     <title>The last News</title>
 </head>
 <body>
-<h2>The last news</h2>
+<h1>The last news</h1>
+<h3><a href="App/controllers/admin/">Go to the admin panel</a></h3>
 <div>
     <?php foreach ($data as $article ): ?>
         <article>
-            <h2><a href="/article.php?id=<?php echo $article->id;
+            <h2><a href="/App/controllers/article.php?id=<?php echo $article->id;
             ?>"><?php echo $article->title; ?></a></h2>
             <p><?php echo $article->content; ?></p>
         </article>
