@@ -5,10 +5,10 @@ use App\Models\Article;
 
 $id = $_GET['id'] ?? false;
 
-if (isset($id) && is_numeric($id)) {
-$article = new Article();
-$article->id = $id;
-$article->delete();
+if (false !== $id && is_numeric($id)) {
+    $article = new Article();
+    $article->id = $id;
+    $article->delete();
 }
-
-include __DIR__ . '/index.php';
+header('Location: /App/controllers/admin/');
+exit();

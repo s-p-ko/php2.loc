@@ -12,5 +12,5 @@ if ('' != $title && '' != $content) {
     $article->content = $content;
     $article->save();
 }
-
-include __DIR__ . '/index.php';
+header('Location: /App/controllers/admin/');
+exit();

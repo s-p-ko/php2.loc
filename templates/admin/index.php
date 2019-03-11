@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width, user-scalable=no, initial-scale=1.0,
+          maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin panel</title>
 </head>
@@ -25,17 +26,18 @@
 </div>
 <div>
     <h3>Articles</h3>
-        <?php foreach ($data as $article): ?>
-            <article>
-                <h4><?php echo $article->title; ?></h4>
-                <div><?php echo $article->content; ?></div>
-                <br>
-                <a href="/App/controllers/admin/edit.php?id=<?php echo $article->id;?>"><button>Edit article</button></a>
-                 <a href="/App/controllers/admin/delete.php?id=<?php echo
-                    $article->id;?>"><button>Delete article</button></a>
-            </article>
-            <hr>
-        <?php endforeach; ?>
+    <?php foreach ($data as $article): ?>
+        <article>
+            <h4><?php echo $article->title; ?></h4>
+            <div><?php echo $article->content; ?></div>
+            <br>
+            <a href="/App/controllers/admin/edit.php?id=<?php echo
+            $article->id;?>"><button>Edit article</button></a>
+            <a href="/App/controllers/admin/delete.php?id=<?php echo
+            $article->id;?>"><button>Delete article</button></a>
+        </article>
+        <hr>
+    <?php endforeach; ?>
 </div>
 </body>
 </html>
