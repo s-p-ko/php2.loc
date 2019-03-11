@@ -9,7 +9,8 @@
 </head>
 <body>
 <h1>Edit the article</h1>
-    <form action="/App/controllers/admin/edit.php" method="post">
+<!--    <form action="/App/controllers/admin/edit.php" method="post">-->
+    <form action="" method="post">
         <p>Title</p>
         <input type='hidden' name="id" value="<?php echo $article->id; ?>">
         <input type="text" size="60" maxlength="250" name="title"
@@ -18,10 +19,13 @@
         <textarea name="content" id="" cols="60" rows="10" ><?php echo
             $article->content; ?></textarea>
         <br><br>
-        <button type="submit" name="editor" value="rewrite">Rewrite</button>
-        <button type="submit" name="editor" value="save">Save as
-            new article</button>
-        <button type="submit" name="editor" value="cancel">Cancel</button>
+        <button formaction="/App/controllers/admin/rewrite.php" type="submit"
+                name="editor"
+                value="rewrite">Rewrite</button>
+        <button formaction="/App/controllers/admin/add.php" type="submit"
+                name="editor" value="save">Save as new article</button>
+        <button formaction="/App/controllers/admin/canceledit.php"type="submit"
+                name="editor" value="cancel">Cancel</button>
     </form>
 </body>
 </html>
