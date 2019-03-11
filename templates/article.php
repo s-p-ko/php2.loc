@@ -8,7 +8,7 @@
     <title>Article</title>
 </head>
 <body>
-<h2><a href="/">На главную</a></h2>
+<h2><a href="/">Return to the main page</a></h2>
 <h1><?php echo $data->title; ?></h1>
 <p><?php echo $data->content; ?></p>
 </body>

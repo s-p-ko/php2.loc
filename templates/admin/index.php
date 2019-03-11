@@ -19,7 +19,7 @@
             <p>Content</p>
             <textarea name="content" id="" cols="60" rows="10"></textarea>
             <br>
-            <button type="submit" name="create" value="create">Submit</button>
+            <button type="submit">Submit</button>
         </form>
     <b><hr></b>
 </div>

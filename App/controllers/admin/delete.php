@@ -10,4 +10,5 @@ $article = new Article();
 $article->id = $id;
 $article->delete();
 }
+
 include __DIR__ . '/index.php';

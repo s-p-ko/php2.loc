@@ -9,14 +9,10 @@ $postid = $_POST['id'] ?? false;
 $title = $_POST['title'] ?? false;
 $content = $_POST['content'] ?? false;
 
-//Rewrites article
-//if ((isset($_POST['editor']) && 'rewrite' === $_POST['editor'])) {
-    if (false != $postid && '' != $title && '' != $content) {
-        $article->id = $postid;
-        $article->title = $title;
-        $article->content = $content;
-        $article->save();
-        include __DIR__ . '/index.php';
-    }
-
-//}
+if (false != $postid && '' != $title && '' != $content) {
+    $article->id = $postid;
+    $article->title = $title;
+    $article->content = $content;
+    $article->save();
+}
+include __DIR__ . '/index.php';
