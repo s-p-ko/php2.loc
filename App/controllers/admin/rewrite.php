@@ -3,15 +3,11 @@ require_once __DIR__ . '/../../../autoload.php';
 
 use App\Models\Article;
 
-$postid = $_POST['id'] ?? false;
-$title = $_POST['title'] ?? false;
-$content = $_POST['content'] ?? false;
-
-if (false != $postid && '' != $title && '' != $content) {
+if (false != $_POST['id'] && '' != $_POST['title'] && '' != $_POST['content']) {
     $article = new Article();
-    $article->id = $postid;
-    $article->title = $title;
-    $article->content = $content;
+    $article->id = $_POST['id'];
+    $article->title = $_POST['title'];
+    $article->content = $_POST['content'];
     $article->save();
 }
 header('Location: /App/controllers/admin/');

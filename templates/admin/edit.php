@@ -12,12 +12,12 @@
 <h1>Edit the article</h1>
     <form method="post">
         <p>Title</p>
-        <input type='hidden' name="id" value="<?php echo $article->id; ?>">
+        <input type='hidden' name="id" value="<?php echo $data->id; ?>">
         <input type="text" size="60" maxlength="250" name="title"
-               value="<?php echo $article->title; ?>">
+               value="<?php echo $data->title; ?>">
         <p>Content</p>
         <textarea name="content" id="" cols="60" rows="10" ><?php echo
-            $article->content; ?></textarea>
+            $data->content; ?></textarea>
         <br><br>
         <button formaction="/App/controllers/admin/rewrite.php" type="submit">
             Rewrite the article</button>

@@ -3,13 +3,11 @@ require_once __DIR__ . '/../../../autoload.php';
 
 use App\Models\Article;
 
-$title = $_POST['title'] ?? false;
-$content = $_POST['content'] ?? false;
 
-if ('' != $title && '' != $content) {
+if ('' != $_POST['title'] && '' != $_POST['content']) {
     $article = new Article();
-    $article->title = $title;
-    $article->content = $content;
+    $article->title = $_POST['title'];
+    $article->content = $_POST['content'];
     $article->save();
 }
 header('Location: /App/controllers/admin/');
