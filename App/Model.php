@@ -83,9 +83,10 @@ abstract class Model
     public function update()
     {
         $db = new \App\Db();
+        $props = get_object_vars($this);
         $cols = [];
         $data = [];
-        foreach ($this as $name => $value) {
+        foreach ($props as $name => $value) {
             $data[':' . $name] = $value;
             if ('id' == $name) {
                 continue;
