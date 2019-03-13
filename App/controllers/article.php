@@ -2,12 +2,13 @@
 require __DIR__ . '/../../autoload.php';
 
 use App\Models\Article;
+use App\View;
 
-$data = Article::findById($_GET['id']);
+$view = new View();
+$view->article = Article::findById($_GET['id']);
 
-if (false == $data ) {
+if (false == $view->article) {
     header('Location: /');
     exit();
-} else {
-    include __DIR__ . '/../../templates/article.php';
 }
+$view->display(__DIR__ . '/../../templates/article.php');

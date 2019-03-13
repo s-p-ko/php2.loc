@@ -30,6 +30,9 @@
         <article>
             <h4><?php echo $article->title; ?></h4>
             <div><?php echo $article->content; ?></div>
+            <?php if (!empty($article->author)) : ?>
+                <p><b>Author: <?php echo $article->author->name; ?></b></p>
+            <?php endif; ?>
             <br>
             <a href="/App/controllers/admin/edit.php?id=<?php echo
             $article->id;?>"><button>Edit article</button></a>

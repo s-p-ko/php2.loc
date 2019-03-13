@@ -10,7 +10,10 @@
 </head>
 <body>
 <h2><a href="/">Return to the main page</a></h2>
-<h1><?php echo $data->title; ?></h1>
-<p><?php echo $data->content; ?></p>
+<h1><?php echo $article->title; ?></h1>
+<p><?php echo $article->content; ?></p>
+<?php if (!empty($article->author)) : ?>
+    <p><b>Author: <?php echo $article->author->name; ?></b></p>
+<?php endif; ?>
 </body>
 </html>

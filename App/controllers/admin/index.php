@@ -2,7 +2,9 @@
 require_once __DIR__ . '/../../../autoload.php';
 
 use App\Models\Article;
+use App\View;
 
-$data = Article::findAll();
+$view = new View();
+$view->data = Article::findAll();
 
-include __DIR__ . '/../../../templates/admin/index.php';
+$view->display(__DIR__ . '/../../../templates/admin/index.php');

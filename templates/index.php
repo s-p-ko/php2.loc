@@ -12,11 +12,14 @@
 <h1>The last news</h1>
 <h3><a href="App/controllers/admin/">Go to the admin panel</a></h3>
 <div>
-    <?php foreach ($data as $article ): ?>
+    <?php foreach ($news as $article ) : ?>
         <article>
             <h2><a href="/App/controllers/article.php?id=<?php echo
                 $article->id; ?>"><?php echo $article->title; ?></a></h2>
             <p><?php echo $article->content; ?></p>
+            <?php if (!empty($article->author)) : ?>
+                <p><b>Author: <?php echo $article->author->name; ?></b></p>
+            <?php endif; ?>
         </article>
     <?php endforeach; ?>
 </div>

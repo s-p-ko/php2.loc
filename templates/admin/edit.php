@@ -18,6 +18,9 @@
         <p>Content</p>
         <textarea name="content" id="" cols="60" rows="10" ><?php echo
             $data->content; ?></textarea>
+        <?php if (!empty($data->author)) : ?>
+            <p><b>Author: <?php echo $data->author->name; ?></b></p>
+        <?php endif; ?>
         <br><br>
         <button formaction="/App/controllers/admin/rewrite.php" type="submit">
             Rewrite the article</button>
