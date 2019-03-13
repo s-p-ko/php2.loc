@@ -3,10 +3,9 @@ require __DIR__ . '/../../autoload.php';
 
 use App\Models\Article;
 
-$id = $_GET['id'] ?? false;
-$data = Article::findById($id);
+$data = Article::findById($_GET['id']);
 
-if (false == $id || false == $data ) {
+if (false == $data ) {
     header('Location: /');
     exit();
 } else {
