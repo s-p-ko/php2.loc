@@ -1,6 +1,10 @@
 <?php
 namespace App;
 
+/**
+ * Class Model
+ * @package App
+ */
 abstract class Model
 {
     protected const TABLE = '';
@@ -27,7 +31,7 @@ abstract class Model
     public static function findById($id)
     {
         $db = new \App\Db();
-        $sql = 'SELECT * FROM ' . static::TABLE . ' WHERE id = :id LIMIT 1';
+        $sql = 'SELECT * FROM ' . static::TABLE . ' WHERE id = :id';
         $params = [':id' => $id];
         $res = $db->query($sql, $params, static::class);
         return $res ? $res[0] : false;
@@ -121,7 +125,7 @@ abstract class Model
     public function delete()
     {
         $db = new \App\Db();
-        $sql = 'DELETE FROM ' . static::TABLE . ' WHERE id = :id LIMIT 1';
+        $sql = 'DELETE FROM ' . static::TABLE . ' WHERE id = :id';
         $data = [':id' => $this->id];
         $db->execute($sql, $data);
     }

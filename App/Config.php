@@ -1,6 +1,10 @@
 <?php
 namespace App;
 
+/**
+ * Class Config
+ * @package App
+ */
 class Config
 {
     public $data;
