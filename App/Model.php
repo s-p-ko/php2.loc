@@ -28,7 +28,7 @@ abstract class Model
      * @return mixed
      * @throws Exceptions\DbException
      */
-    public static function findById($id)
+    public static function findById(int $id)
     {
         $db = new \App\Db();
         $sql = 'SELECT * FROM ' . static::TABLE . ' WHERE id = :id';
