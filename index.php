@@ -1,10 +1,7 @@
 <?php
 require __DIR__ . '/autoload.php';
 
-use App\Models\Article;
-use App\View;
-
-$view = new View();
-$view->news = Article::findAll();
-
-$view->display(__DIR__ . '/templates/index.php');
+$ctrlName = isset($_GET['cntrl']) ? ucfirst($_GET['cntrl']) : 'Index';
+$ctrlClass = '\App\Controllers\\' . $ctrlName;
+$ctrl = new $ctrlClass;
+$ctrl->action();
