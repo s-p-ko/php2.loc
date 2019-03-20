@@ -19,10 +19,17 @@ abstract class Controller
     public function action()
     {
         if ($this->access()) {
-            $this->handle();
+            return $this->handle();
         }
-        die('Нет доступа');
+        die('Access closed');
     }
+
+    protected static function redirect(string $path)
+    {
+        header('Location: ' . $path);
+        exit;
+    }
+
 
     abstract protected function handle();
 }

@@ -12,21 +12,21 @@
 <h1>Edit the article</h1>
     <form method="post">
         <p>Title</p>
-        <input type='hidden' name="id" value="<?php echo $data->id; ?>">
+        <input type='hidden' name="id" value="<?php echo $article->id; ?>">
         <input type="text" size="60" maxlength="250" name="title"
-               value="<?php echo $data->title; ?>">
+               value="<?php echo $article->title; ?>">
         <p>Content</p>
         <textarea name="content" id="" cols="60" rows="10" ><?php echo
-            $data->content; ?></textarea>
-        <?php if (!empty($data->author)) : ?>
-            <p><b>Author: <?php echo $data->author->name; ?></b></p>
+            $article->content; ?></textarea>
+        <?php if (!empty($article->author)) : ?>
+            <p><b>Author: <?php echo $article->author->name; ?></b></p>
         <?php endif; ?>
         <br><br>
-        <button formaction="/App/controllers/admin/rewrite.php" type="submit">
+        <button formaction="/?ctrl=admin/rewrite" type="submit">
             Rewrite the article</button>
-        <button formaction="/App/controllers/admin/add.php" type="submit">
+        <button formaction="/?ctrl=admin/add" type="submit">
             Save as new article</button>
-        <button formaction="/App/controllers/admin/canceledit.php" type="submit">
+        <button formaction="/?ctrl=admin/canceledit" type="submit">
             Cancel</button>
     </form>
 </body>

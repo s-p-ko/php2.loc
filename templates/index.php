@@ -10,11 +10,11 @@
 </head>
 <body>
 <h1>The last news</h1>
-<h3><a href="App/controllers/admin/">Go to the admin panel</a></h3>
+<h3><a href="/?ctrl=admin/index">Go to the admin panel</a></h3>
 <div>
     <?php foreach ($articles as $article ) : ?>
         <article>
-            <h2><a href="/?cntrl=Article&id=<?php echo $article->id;
+            <h2><a href="/?ctrl=article&id=<?php echo $article->id;
             ?>"><?php echo $article->title; ?></a></h2>
             <p><?php echo $article->content; ?></p>
             <?php if (!empty($article->author)) : ?>

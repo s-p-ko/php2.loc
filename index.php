@@ -1,7 +1,8 @@
 <?php
 require __DIR__ . '/autoload.php';
-
-$ctrlName = isset($_GET['cntrl']) ? ucfirst($_GET['cntrl']) : 'Index';
+//$ctrlName = isset($_GET['ctrl']) ? ucfirst($_GET['ctrl']) : 'Index';
+$ctrlName = isset($_GET['ctrl']) ? preg_replace('#/#', '\\', $_GET['ctrl']) : 'Index';
+$ctrlName = ucwords($ctrlName, '\\');
 $ctrlClass = '\App\Controllers\\' . $ctrlName;
 $ctrl = new $ctrlClass;
 $ctrl->action();

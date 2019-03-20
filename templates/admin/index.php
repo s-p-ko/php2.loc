@@ -14,7 +14,7 @@
 </div>
 <div>
     <h2>Create a new Article</h2>
-        <form action="/App/controllers/admin/add.php" method="post">
+        <form action="/?ctrl=admin/add" method="post">
             <p>Title</p>
             <input type="text" size="60" maxlength="250" name="title">
             <p>Content</p>
@@ -26,7 +26,7 @@
 </div>
 <div>
     <h3>Articles</h3>
-    <?php foreach ($data as $article): ?>
+    <?php foreach ($articles as $article): ?>
         <article>
             <h4><?php echo $article->title; ?></h4>
             <div><?php echo $article->content; ?></div>
@@ -34,9 +34,9 @@
                 <p><b>Author: <?php echo $article->author->name; ?></b></p>
             <?php endif; ?>
             <br>
-            <a href="/App/controllers/admin/edit.php?id=<?php echo
+            <a href="/?ctrl=admin/edit&id=<?php echo
             $article->id;?>"><button>Edit article</button></a>
-            <a href="/App/controllers/admin/delete.php?id=<?php echo
+            <a href="/?ctrl=admin/delete&id=<?php echo
             $article->id;?>"><button>Delete article</button></a>
         </article>
         <hr>
