@@ -5,4 +5,4 @@ $ctrlName = isset($_GET['ctrl']) ? preg_replace('#/#', '\\', $_GET['ctrl']) : 'I
 $ctrlName = ucwords($ctrlName, '\\');
 $ctrlClass = '\App\Controllers\\' . $ctrlName;
 $ctrl = new $ctrlClass;
-$ctrl->action();
+$ctrl();

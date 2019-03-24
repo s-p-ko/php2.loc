@@ -25,7 +25,7 @@ abstract class Controller
     /**
      * @return mixed
      */
-    public function action()
+    public function __invoke()
     {
         if ($this->access()) {
             return $this->handle();
