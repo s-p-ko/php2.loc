@@ -22,11 +22,11 @@
             <p><b>Author: <?php echo $article->author->name; ?></b></p>
         <?php endif; ?>
         <br><br>
-        <button formaction="/?ctrl=admin/rewrite" type="submit">
+        <button formaction="/admin/rewrite" type="submit">
             Rewrite the article</button>
-        <button formaction="/?ctrl=admin/add" type="submit">
+        <button formaction="/admin/add" type="submit">
             Save as new article</button>
-        <button formaction="/?ctrl=admin/canceledit" type="submit">
+        <button formaction="/admin/canceled" type="submit">
             Cancel</button>
     </form>
 </body>

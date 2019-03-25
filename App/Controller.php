@@ -4,6 +4,9 @@ namespace App;
 abstract class Controller
 {
     protected $view;
+    protected $data = [];
+
+    use MagicTrait, IteratorTrait, CountableTrait;
 
     /**
      * Controller constructor.

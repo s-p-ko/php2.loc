@@ -3,10 +3,10 @@ namespace App\Controllers\Admin;
 
 use App\Controller;
 
-class Canceledit extends Controller
+class Canceled extends Controller
 {
     protected function handle()
     {
-        static::redirect('/?ctrl=admin/index');
+        static::redirect('/admin');
     }
 }

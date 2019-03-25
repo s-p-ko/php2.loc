@@ -8,7 +8,8 @@ class Article extends Controller
 {
     public function handle()
     {
-        $this->view->article = ArticleModel::findById($_GET['id']);
+        $id = $this->data['data'];
+        $this->view->article = ArticleModel::findById($id);
         $this->view->display(__DIR__ . '/../../templates/article.php');
     }
 }

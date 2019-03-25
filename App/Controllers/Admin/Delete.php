@@ -8,8 +8,9 @@ class Delete extends Controller
 {
     protected function handle()
     {
-        $article = Article::findById($_GET['id']);
+        $id = $this->data['data'];
+        $article = Article::findById($id);
         $article->delete();
-        static::redirect('/?ctrl=admin/index');
+        static::redirect('/admin');
     }
 }

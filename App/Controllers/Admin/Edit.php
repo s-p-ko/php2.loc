@@ -8,7 +8,8 @@ class Edit extends Controller
 {
     protected function handle()
     {
-        $this->view->article = Article::findById($_GET['id']);
+        $id = $this->data['data'];
+        $this->view->article = Article::findById($id);
         $this->view->display(__DIR__ . '/../../../templates/admin/edit.php');
     }
 }
