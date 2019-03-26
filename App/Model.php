@@ -17,7 +17,7 @@ abstract class Model
      */
     public static function findAll() : array
     {
-        $db = new \App\Db();
+        $db = new Db();
         $sql = 'SELECT * FROM ' . static::TABLE;
         return $db->query($sql, [], static::class);
     }
@@ -30,7 +30,7 @@ abstract class Model
      */
     public static function findById(int $id)
     {
-        $db = new \App\Db();
+        $db = new Db();
         $sql = 'SELECT * FROM ' . static::TABLE . ' WHERE id = :id';
         $params = [':id' => $id];
         $res = $db->query($sql, $params, static::class);
@@ -46,7 +46,7 @@ abstract class Model
      */
     public static function findAllLast(int $limit = 3)
     {
-        $db = new \App\Db();
+        $db = new Db();
         $sql = 'SELECT * FROM ' . static::TABLE . ' ORDER BY id DESC LIMIT ' . $limit;
         $res = $db->query($sql, [], static::class);
         return $res ? : false;
@@ -58,7 +58,7 @@ abstract class Model
      */
     public function insert()
     {
-        $db = new \App\Db();
+        $db = new Db();
         $props = get_object_vars($this);
         $fields = [];
         $binds = [];
@@ -87,7 +87,7 @@ abstract class Model
      */
     public function update()
     {
-        $db = new \App\Db();
+        $db = new Db();
         $props = get_object_vars($this);
         $cols = [];
         $data = [];
@@ -125,7 +125,7 @@ abstract class Model
      */
     public function delete()
     {
-        $db = new \App\Db();
+        $db = new Db();
         $sql = 'DELETE FROM ' . static::TABLE . ' WHERE id = :id';
         $data = [':id' => $this->id];
         $db->execute($sql, $data);

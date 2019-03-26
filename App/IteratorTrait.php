@@ -7,6 +7,9 @@ namespace App;
  */
 trait IteratorTrait
 {
+
+    protected $data;
+
     /**
      * Return the current element
      * @return mixed Can return any type.

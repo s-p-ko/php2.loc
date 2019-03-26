@@ -8,6 +8,11 @@ namespace App;
 trait MagicTrait
 {
     /**
+     * @var array
+     */
+    protected $data = [];
+
+    /**
      * @param $name string
      * @param $value mixed
      */
