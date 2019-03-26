@@ -2,13 +2,6 @@ Learning php on PHP2 course by Albert Stepantsev (https://pr-of-it.ru/)
 
 Start on the 4th of March 2019. 
 
-Lesson #4 
+Condition after the 4th lesson. 
 
-Домашнее задание №4
-
-Важно! Это итоговый вариант домашней работы с выполнением пунктов:
-4 (отдельная точка входа для админ-панели) и 5* (ЧПУ).
-
-
-Для просмотра выполнения пунктов 1-3 смотреть здесь
-
+25-03-2019
