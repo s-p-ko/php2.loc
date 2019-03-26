@@ -16,8 +16,7 @@
         <input type="text" size="60" maxlength="250" name="title"
                value="<?php echo $article->title; ?>">
         <p>Content</p>
-        <textarea name="content" id="" cols="60" rows="10" >
-            <?php echo $article->content; ?></textarea>
+        <textarea name="content" id="" cols="60" rows="10" ><?php echo $article->content; ?></textarea>
         <?php if (!empty($article->author)) : ?>
             <p><b>Author: <?php echo $article->author->name; ?></b></p>
         <?php endif; ?>
