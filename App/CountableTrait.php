@@ -8,7 +8,7 @@ namespace App;
 trait CountableTrait
 {
 
-    protected $data;
+    protected $prop;
 
     /**
      * Count elements of an object
@@ -16,6 +16,6 @@ trait CountableTrait
      */
     public function count()
     {
-        return count($this->data);
+        return count($this->prop);
     }
 }
