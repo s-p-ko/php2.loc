@@ -6,11 +6,17 @@ Condition after the 4th lesson.
 
 25-03-2019
 
-Changes in Nginx_1.14_vhost.conf
+
+Settings in Nginx_1.14_vhost.conf
 
     location / {
         root       "%hostdir%";
         index      index.php;
-        try_files $uri $uri/ /index.php?$args /admin/index.php?$args;
-    }   
+        try_files $uri $uri/ /index.php$args;
+    }
+    
+    # admin links
+    location /admin {
+     try_files $uri $uri/ /admin/index.php$args;
+    } 
     
