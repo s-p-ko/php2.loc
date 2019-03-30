@@ -10,13 +10,21 @@ class Db
      */
     public function __construct()
     {
-        $config = Config::instance();
-        $this->dbh = new \PDO(
-            'mysql:host=' . $config->data['db']['host'] . ';dbname=' .
-            $config->data['db']['dbname'],
-            $config->data['db']['user'],
-            $config->data['db']['password']
-        );
+
+            $config = Config::instance();
+        try {
+            $this->dbh = new \PDO(
+                'mysql:host=' . $config->data['db']['host'] . ';dbname=' .
+                $config->data['db']['dbname'],
+                $config->data['db']['user'],
+                $config->data['db']['password']
+            );
+            $this->dbh->setAttribute(\PDO::ATTR_ERRMODE,
+                \PDO::ERRMODE_EXCEPTION);
+        } catch (\PDOException $e) {
+            echo 'Db Error' . $e->getMessage();
+            die;
+        }
     }
 
     /**
