@@ -11,6 +11,11 @@ class Logger extends AbstractLogger
 {
     protected $logsFile = __DIR__ . '/../logs/logger.log';
 
+    /**
+     * @param mixed string
+     * @param object $message
+     * @param array $context
+     */
     public function log($level, $message, array $context = [])
     {
         $text = $level . ' | ';
@@ -22,4 +27,3 @@ class Logger extends AbstractLogger
         file_put_contents($this->logsFile, $text . PHP_EOL, FILE_APPEND);
     }
 }
-
