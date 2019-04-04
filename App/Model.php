@@ -1,6 +1,9 @@
 <?php
 namespace App;
 
+use App\Exceptions\MultiException;
+use App\Exceptions\ModelValueException;
+
 /**
  * Class Model
  * @package App
@@ -34,7 +37,6 @@ abstract class Model
         $sql = 'SELECT * FROM ' . static::TABLE . ' WHERE id = :id';
         $params = [':id' => $id];
         $res = $db->query($sql, $params, static::class);
-//        return $res ? $res[0] : false;
         return $res ? reset($res) : false;
     }
 
@@ -129,5 +131,28 @@ abstract class Model
         $sql = 'DELETE FROM ' . static::TABLE . ' WHERE id = :id';
         $data = [':id' => $this->id];
         $db->execute($sql, $data);
+    }
+
+    /**
+     * @param array $data
+     * @throws MultiException
+     */
+    public function fill(array $data): void
+    {
+        $errors = new MultiException();
+
+        foreach ($data as $key => $value) {
+            if (property_exists($this, $key)) {
+                if (empty($data[$key])) {
+                    $errors->add(new ModelValueException(
+                        'The field <b>' . $key . '</b> is not filled.'
+                     ));
+                }
+                $this->$key = $data[$key];
+            }
+        }
+        if (!$errors->empty()) {
+            throw $errors;
+        }
     }
 }

@@ -1,6 +1,8 @@
 <?php
 namespace App;
 
+use App\Exceptions\DbException;
+
 class Db
 {
     protected $dbh;
@@ -22,9 +24,10 @@ class Db
             $this->dbh->setAttribute(\PDO::ATTR_ERRMODE,
                 \PDO::ERRMODE_EXCEPTION);
         } catch (\PDOException $e) {
-            echo 'Db Error' . $e->getMessage();
-            die;
+            throw new DbException('No database connection: ' . $e->getMessage
+                ());
         }
+
     }
 
     /**
@@ -37,12 +40,21 @@ class Db
     public function query(string $sql, array $params = [], string $class =
     null) : array
     {
-        $sth = $this->dbh->prepare($sql);
-        $sth->execute($params);
-        if (null === $class) {
-            return $sth->fetchAll(\PDO::FETCH_ASSOC);
+        try {
+            $sth = $this->dbh->prepare($sql);
+        } catch (\PDOException $e) {
+            throw new DbException('Error while preparing the request: ' . $e->getMessage
+                ());
         }
-        return $sth->fetchAll(\PDO::FETCH_CLASS, $class);
+        try {
+            $sth->execute($params);
+        } catch (\PDOException $e) {
+            throw new DbException('Error executing the request: ' . $e->getMessage());
+        }
+            if (null === $class) {
+                return $sth->fetchAll(\PDO::FETCH_ASSOC);
+            }
+            return $sth->fetchAll(\PDO::FETCH_CLASS, $class);
     }
 
     /**
@@ -53,7 +65,17 @@ class Db
      */
     public function execute(string $sql, array $params = []) : bool
     {
-        return $this->dbh->prepare($sql)->execute($params);
+        try {
+            $sth = $this->dbh->prepare($sql);
+        } catch (\PDOException $e) {
+            throw new DbException('Error executing the request: ' . $e->getMessage());
+        }
+        try {
+            return $sth->execute($params);
+        } catch (\PDOException $e) {
+            throw new DbException('Error executing the request: ' . $e->getMessage());
+        }
+//        return $this->dbh->prepare($sql)->execute($params);
     }
 
     /**

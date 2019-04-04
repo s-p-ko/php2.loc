@@ -1,19 +1,20 @@
 <?php
 require_once __DIR__ . '/../autoload.php';
+use App\Exceptions\MultiException;
 
 //class MyException1 extends Exception {}
 //class MyException2 extends Exception {}
 //$ex = new Exception('Something happened', 42);
-////var_dump($ex);
-////var_dump($ex->getMessage());
-////var_dump($ex->getCode());
-////var_dump($ex->getLine());
-////var_dump($ex->getFile());
-////var_dump($ex->getTrace());
-////
-////echo $ex;
-
-
+//var_dump($ex);
+//var_dump($ex->getMessage());
+//var_dump($ex->getCode());
+//var_dump($ex->getLine());
+//var_dump($ex->getFile());
+//var_dump($ex->getTrace());
+//
+//echo $ex;
+//
+//
 ////1
 //function foo()
 //{
@@ -57,26 +58,26 @@ require_once __DIR__ . '/../autoload.php';
 //    echo 'Возникла ошибка, level 0: ' . $e->getMessage() . '<br>';
 //}
 
-function checkPassword(string $password) {
-    $errors = new \tests\MultiException();
-    if (strlen($password) < 6) {
-        $errors->add(new \Exception('Less than 6'));
-    }
-    if (false === strpos($password, '!')) {
-        $errors->add(new \Exception('Without !'));
-    }
-    if (!$errors->empty()) {
-       throw $errors;
-    }
-    return true;
-}
-
-try {
-    $result = checkPassword('123');
-    var_dump($result);
-    } catch (\tests\MultiException $er) {
-    foreach ($er->all() as $e) {
-        echo 'Error <br>';
-        echo $e->getMessage() . '<br>';
-    }
-}
+//function checkPassword(string $password) {
+//    $errors = new \tests\MultiException();
+//    if (strlen($password) < 6) {
+//        $errors->add(new \Exception('Less than 6'));
+//    }
+//    if (false === strpos($password, '!')) {
+//        $errors->add(new \Exception('Without !'));
+//    }
+//    if (!$errors->empty()) {
+//       throw $errors;
+//    }
+//    return true;
+//}
+//
+//try {
+//    $result = checkPassword('123');
+//    var_dump($result);
+//    } catch (\tests\MultiException $er) {
+//    foreach ($er->all() as $e) {
+//        echo 'Error <br>';
+//        echo $e->getMessage() . '<br>';
+//    }
+//}

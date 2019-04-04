@@ -32,7 +32,7 @@ abstract class Controller
         if ($this->access()) {
             return $this->handle();
         }
-        die('Access closed');
+        throw new BaseException('Access closed');
     }
 
     /**

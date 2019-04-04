@@ -5,7 +5,7 @@ namespace App\Exceptions;
  * Class DbException
  * @package App\Exceptions
  */
-class DbException extends \Exception
+class DbException extends BaseException
 {
 
 }

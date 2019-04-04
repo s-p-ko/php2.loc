@@ -1,13 +1,15 @@
 <?php
-namespace tests;
+namespace App\Exceptions;
 
-use Throwable;
-
-class MultiException extends \Exception
+/**
+ * Class MultiException
+ * @package App\Exceptions
+ */
+class MultiException extends BaseException
 {
     protected $errors = [];
 
-    public function add(\Exception $e)
+    public function add(BaseException $e)
     {
         $this->errors[] = $e;
     }

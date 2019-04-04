@@ -8,12 +8,9 @@ class Rewrite extends Controller
 {
     protected function handle()
     {
-        if (isset($_POST['id'], $_POST['title'], $_POST['content'])) {
-            $article = Article::findById($_POST['id']);
-            $article->title = $_POST['title'];
-            $article->content = $_POST['content'];
-            $article->save();
-        }
+        $article = Article::findById($_POST['id']);
+        $article->fill($_POST);
+        $article->save();
         static::redirect('/admin');
     }
 }

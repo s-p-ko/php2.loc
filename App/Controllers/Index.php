@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use App\Controller;
+use App\Exceptions\ErrorException;
 use App\Models\Article;
 
 class Index extends Controller
