@@ -24,8 +24,7 @@ class Db
             $this->dbh->setAttribute(\PDO::ATTR_ERRMODE,
                 \PDO::ERRMODE_EXCEPTION);
         } catch (\PDOException $e) {
-            throw new DbException('No database connection: ' . $e->getMessage
-                ());
+            throw new DbException('No database connection: ' . $e->getMessage());
         }
 
     }
@@ -43,8 +42,7 @@ class Db
         try {
             $sth = $this->dbh->prepare($sql);
         } catch (\PDOException $e) {
-            throw new DbException('Error while preparing the request: ' . $e->getMessage
-                ());
+            throw new DbException('Error while preparing the request: ' . $e->getMessage());
         }
         try {
             $sth->execute($params);
@@ -68,14 +66,13 @@ class Db
         try {
             $sth = $this->dbh->prepare($sql);
         } catch (\PDOException $e) {
-            throw new DbException('Error executing the request: ' . $e->getMessage());
+            throw new DbException('Error while preparing the request: ' . $e->getMessage());
         }
         try {
             return $sth->execute($params);
         } catch (\PDOException $e) {
             throw new DbException('Error executing the request: ' . $e->getMessage());
         }
-//        return $this->dbh->prepare($sql)->execute($params);
     }
 
     /**
