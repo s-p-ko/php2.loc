@@ -1,8 +1,13 @@
 <?php
+
 namespace App;
 
 use App\Exceptions\DbException;
 
+/**
+ * Class Db
+ * @package App
+ */
 class Db
 {
     protected $dbh;
@@ -13,7 +18,7 @@ class Db
     public function __construct()
     {
 
-            $config = Config::instance();
+        $config = Config::instance();
         try {
             $this->dbh = new \PDO(
                 'mysql:host=' . $config->data['db']['host'] . ';dbname=' .
@@ -37,7 +42,7 @@ class Db
      * @return array
      */
     public function query(string $sql, array $params = [], string $class =
-    null) : array
+    null): array
     {
         try {
             $sth = $this->dbh->prepare($sql);
@@ -49,10 +54,10 @@ class Db
         } catch (\PDOException $e) {
             throw new DbException('Error executing the request: ' . $e->getMessage());
         }
-            if (null === $class) {
-                return $sth->fetchAll(\PDO::FETCH_ASSOC);
-            }
-            return $sth->fetchAll(\PDO::FETCH_CLASS, $class);
+        if (null === $class) {
+            return $sth->fetchAll(\PDO::FETCH_ASSOC);
+        }
+        return $sth->fetchAll(\PDO::FETCH_CLASS, $class);
     }
 
     /**
@@ -61,7 +66,7 @@ class Db
      * @param array $params
      * @return bool
      */
-    public function execute(string $sql, array $params = []) : bool
+    public function execute(string $sql, array $params = []): bool
     {
         try {
             $sth = $this->dbh->prepare($sql);
