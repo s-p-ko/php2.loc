@@ -29,6 +29,9 @@ ControllerNotFoundException $e) {
     } else {
         (new \App\Logger())->error($e);
     }
+    if ($e instanceof DbException) {
+        (Mailer::instance())->send($e->getMessage());
+    }
     $controller = new Error();
     $controller->message = $e;
     $controller();

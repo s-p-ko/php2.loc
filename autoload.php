@@ -1,4 +1,6 @@
 <?php
+require __DIR__ . '/vendor/autoload.php';
+
 /**
  * For autoloading classes
  * @param string $class
