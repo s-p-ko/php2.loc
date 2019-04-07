@@ -85,11 +85,7 @@ abstract class Model
             }
             $cols[] = $name . ' = :' . $name;
         }
-        $sql = '
-            UPDATE ' . static::TABLE . ' 
-            SET ' . implode(', ', $cols) . ' 
-            WHERE id = :id
-            ';
+        $sql = 'UPDATE ' . static::TABLE . ' SET ' . implode(', ', $cols) . ' WHERE id = :id';
         $db->execute($sql, $data);
     }
 
@@ -112,12 +108,10 @@ abstract class Model
             $binds[] = ':' . $name;
             $data[':' . $name] = $value;
         }
-        $sql = '
-            INSERT INTO ' . static::TABLE .
+        $sql = 'INSERT INTO ' . static::TABLE .
             ' (' . implode(', ', $fields) . ')
             VALUES
-             (' . implode(', ', $binds) . ')
-             ';
+             (' . implode(', ', $binds) . ')';
         $db->execute($sql, $data);
         $this->id = $db->lastInsertId();
     }
@@ -146,9 +140,7 @@ abstract class Model
         foreach ($data as $key => $value) {
             if (property_exists($this, $key)) {
                 if (empty($data[$key])) {
-                    $errors->add(new ModelValueException(
-                        'The field <b>' . $key . '</b> is not filled.'
-                    ));
+                    $errors->add(new ModelValueException('The field <b>' . $key . '</b> is not filled.'));
                 }
                 $this->$key = $data[$key];
             }

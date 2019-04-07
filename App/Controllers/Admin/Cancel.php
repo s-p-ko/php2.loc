@@ -5,10 +5,10 @@ namespace App\Controllers\Admin;
 use App\Controller;
 
 /**
- * Class Canceled
+ * Class Cancel
  * @package App\Controllers\Admin
  */
-class Canceled extends Controller
+class Cancel extends Controller
 {
     /**
      * @return void
