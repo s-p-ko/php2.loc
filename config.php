@@ -9,8 +9,8 @@ return [
     'email' => [
         'name' => 's-p-ko@ukr.net',
         'host' => 'smtp.ukr.net',
-        'port' => 465,
-        'login' => 's-p-ko',
+        'port' => 2525,
+        'login' => 's-p-ko@ukr.net',
         'password' => 'fake123456',
     ],
     'adminEmail' => [

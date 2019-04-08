@@ -7,6 +7,7 @@ use App\Exceptions\ControllerNotFoundException;
 use App\Exceptions\DbException;
 use App\Exceptions\ErrorException;
 use App\Exceptions\MultiException;
+use App\Mailer;
 
 $parts = explode('/', $_SERVER['REQUEST_URI']);
 $name = (!empty($parts[2])) ? ucfirst($parts[2]) : 'Index';
@@ -21,7 +22,7 @@ try {
     $controller->data = (!empty($parts[3])) ? $parts[3] : null;
     $controller();
 } catch (DbException | ErrorException | BaseException | MultiException |
-ControllerNotFoundException $e) {
+ControllerNotFoundException | MailerException $e) {
     if ($e instanceof MultiException) {
         foreach ($e->all() as $ex) {
             (new \App\Logger())->error($ex);

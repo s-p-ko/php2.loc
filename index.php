@@ -20,11 +20,12 @@ try {
     $controller = new $classController;
     $controller->data = (!empty($parts[2])) ? $parts[2] : null;
     $controller();
-} catch (DbException | ErrorException | BaseException | ControllerNotFoundException $e) {
+} catch (DbException | ErrorException | BaseException |
+ControllerNotFoundException | MailerException $e) {
+    (new \App\Logger())->error($e);
     if ($e instanceof DbException) {
         (Mailer::instance())->send($e->getMessage());
     }
-    (new \App\Logger())->error($e);
     $controller = new Error404();
     $controller->message = $e->getMessage();
     $controller();

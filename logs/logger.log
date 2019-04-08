@@ -1,3 +1,7 @@
 
-error | 2019-04-07 13:19:25 File: D:\OS\OSPanel\domains\php2.loc\App\Model.php Line: 143 Description: The field <b>title</b> is not filled.
-error | 2019-04-07 13:19:25 File: D:\OS\OSPanel\domains\php2.loc\App\Model.php Line: 143 Description: The field <b>content</b> is not filled.
+error | 2019-04-08 12:02:46 File: D:\OS\OSPanel\domains\php2.loc\App\Db.php Line: 32 Description: No database connection: SQLSTATE[HY000] [1049] Unknown database 'php2loc1'
+error | 2019-04-09 01:33:23 File: D:\OS\OSPanel\domains\php2.loc\App\Db.php Line: 32 Description: No database connection: SQLSTATE[HY000] [1049] Unknown database 'php2loc1'
+error | 2019-04-09 01:33:27 File: D:\OS\OSPanel\domains\php2.loc\App\Db.php Line: 32 Description: No database connection: SQLSTATE[HY000] [1049] Unknown database 'php2loc1'
+error | 2019-04-09 01:33:48 File: D:\OS\OSPanel\domains\php2.loc\App\Db.php Line: 32 Description: No database connection: SQLSTATE[HY000] [1049] Unknown database 'php2loc2'
+error | 2019-04-09 01:37:27 File: D:\OS\OSPanel\domains\php2.loc\App\Db.php Line: 32 Description: No database connection: SQLSTATE[HY000] [1049] Unknown database 'php2loc2'
+error | 2019-04-09 01:40:23 File: D:\OS\OSPanel\domains\php2.loc\App\Db.php Line: 32 Description: No database connection: SQLSTATE[HY000] [1049] Unknown database 'php2loc4'

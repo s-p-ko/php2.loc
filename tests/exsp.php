@@ -56,7 +56,7 @@ require_once __DIR__ . '/../autoload.php';
 //} catch (Exception $e) {
 //    echo 'Возникла ошибка, level 0: ' . $e->getMessage() . '<br>';
 //}
-
+//
 //function checkPassword(string $password) {
 //    $errors = new \tests\MultiException();
 //    if (strlen($password) < 6) {
