@@ -2,10 +2,6 @@
 
 namespace App;
 
-use Swift_Mailer;
-use Swift_Message;
-use Swift_SmtpTransport;
-
 /**
  * Class Mailer
  * @package App
@@ -26,12 +22,12 @@ class Mailer
         $this->emailFrom = $config->data['email']['name'];
         $this->emailTo = $config->data['adminEmail']['name'];
 
-        $transport = (new Swift_SmtpTransport
+        $transport = (new \Swift_SmtpTransport
         ($config->data['email']['host'], $config->data['email']['port']))
             ->setUsername($config->data['email']['login'])
             ->setPassword($config->data['email']['password'])
             ->setEncryption('SSL');
-        $this->mailer = new Swift_Mailer($transport);
+        $this->mailer = new \Swift_Mailer($transport);
 
     }
 
@@ -51,7 +47,7 @@ class Mailer
      */
     public function send(string $text)
     {
-        $message = (new Swift_Message('Server message'))
+        $message = (new \Swift_Message('Server message'))
             ->setFrom([$this->emailFrom => 'Server'])
             ->setTo([$this->emailTo => 'Admin'])
             ->setBody($text);

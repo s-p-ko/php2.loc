@@ -10,16 +10,16 @@ Condition after the homework 6 of the 6th lesson.
 
 Информация для проверяющего:
 
-По п.2 был выбран пп.4. **swiftmailer/swiftmailer**. 
-Соответственно и выполнялся пп.3.4. 
+По п.**2**, был выбран пп.**2.4.** - **swiftmailer/swiftmailer**. 
+Соответственно, далее и выполнялся пп.**3.4**. 
 
-**Смотреть**: class Mailer в App/Mailer
-.php, index.php, admin/index.php, config.php 
+**Реализацию смотреть**: class Mailer в App/Mailer.php, index.php, admin/index.php, config.php 
 
-Выполнение п.4* смотреть по ссылке https://packagist.org/packages/s-p-ko/multiexception
+Выполнение п.**4*** смотреть на **packagist** по ссылке https://packagist.org/packages/s-p-ko/multiexception
+ или на **github:** https://github.com/s-p-ko/multiexception
 
 
-**Задания**
+**Задания:**
 
 1. Проверьте свой код на соответствие стандартам PSR-1 и PSR-2. При необходимости - исправьте.
 2. Подключите с помощью composer на выбор к своему проекту одну из указанных библиотек:

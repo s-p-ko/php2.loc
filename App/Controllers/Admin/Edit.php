@@ -22,4 +22,3 @@ class Edit extends Controller
         $this->view->display(__DIR__ . '/../../../templates/admin/edit.php');
     }
 }
-
