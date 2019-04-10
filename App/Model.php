@@ -15,15 +15,15 @@ abstract class Model
     public $id;
 
     /**
-     * Get arrays of objects of a given class
-     * @return array
+     * @return \Generator
+     * @throws DbException
      * @throws Exceptions\DbException
      */
-    public static function findAll(): array
+    public static function findAll()
     {
         $db = new Db();
         $sql = 'SELECT * FROM ' . static::TABLE;
-        return $db->query($sql, [], static::class);
+        return $db->queryEach($sql, [], static::class);
     }
 
     /**
@@ -42,18 +42,19 @@ abstract class Model
     }
 
     /**
-     * Find all last objects, return array or false
      * @param int $limit
-     * @return mixed
+     * @return bool
+     * @throws DbException
      * @throws Exceptions\DbException
      */
     public static function findAllLast(int $limit = 3)
     {
         $db = new Db();
         $sql = 'SELECT * FROM ' . static::TABLE . ' ORDER BY id DESC LIMIT ' . $limit;
-        $res = $db->query($sql, [], static::class);
+        $res = $db->queryEach($sql, [], static::class);
         return $res ?: false;
     }
+
 
     /**
      * Selects which this class's method to apply: insert() or update()

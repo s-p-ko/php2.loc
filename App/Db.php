@@ -61,6 +61,38 @@ class Db
     }
 
     /**
+     * @param string $sql
+     * @param array $params
+     * @param string|null $class
+     * @return \Generator
+     * @throws DbException
+     */
+    public function queryEach(string $sql, array $params = [], string $class =
+    null)
+    {
+        try {
+            $sth = $this->dbh->prepare($sql);
+        } catch (\PDOException $e) {
+            throw new DbException('Error while preparing the request: ' . $e->getMessage());
+        }
+        try {
+            $sth->execute($params);
+        } catch (\PDOException $e) {
+            throw new DbException('Error executing the request: ' . $e->getMessage());
+        }
+        if (null === $class) {
+            $sth->setFetchMode(\PDO::FETCH_ASSOC);
+            while (false !== ($row = $sth->fetch())) {
+                yield $row;
+            }
+        }
+        $sth->setFetchMode(\PDO::FETCH_CLASS, $class);
+        while (false !== ($row = $sth->fetch())) {
+            yield $row;
+        }
+    }
+
+    /**
      * Execution request from models
      * @param string $sql
      * @param array $params
