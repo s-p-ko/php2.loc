@@ -1,3 +1,22 @@
+<?php
+use App\AdminDataTable;
+use App\Models\Article;
+
+$functions = [
+    function (Article $article) {
+    return $article->id;
+    },
+    function (Article $article) {
+        return $article->title;
+    },
+    function (Article $article) {
+        return $article->content;
+    },
+    function (Article $article) {
+        return $article->author_id;
+    }
+    ];
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -29,18 +48,19 @@
 </div>
 <div>
     <h3>Articles</h3>
-    <?php foreach ($articles as $article): ?>
+    <?php foreach ((new AdminDataTable($articles, $functions))->render() as $data): ?>
         <article>
-            <h4><?php echo $article->title; ?></h4>
-            <div><?php echo $article->content; ?></div>
-            <?php if (!empty($article->author)) : ?>
-                <p><b>Author: <?php echo $article->author->name; ?></b></p>
+            <h4><?php echo $data[1]; ?></h4>
+            <div><?php echo $data[2]; ?></div>
+            <?php if (!empty($data[3])) : ?>
+                <p><b>Author: <?php echo (Article::findById($data[0])->author);
+                ?></b></p>
             <?php endif; ?>
             <br>
-            <a href="/admin/edit/<?php echo $article->id; ?>">
+            <a href="/admin/edit/<?php echo $data[0]; ?>">
                 <button>Edit article</button>
             </a>
-            <a href="/admin/delete/<?php echo $article->id; ?>">
+            <a href="/admin/delete/<?php echo $data[0]; ?>">
                 <button>Delete article</button>
             </a>
         </article>
