@@ -16,7 +16,8 @@ findAllLast(int $limit = 3)
 
 По п.**2, Реализацию смотреть**: App/AdminDataTable.php
 
-По п.**3, Реализацию смотреть**: templates/admin/index.php
+По п.**3, Реализацию смотреть**: templates/admin/index.php, App/Models/Author.php (в связи с примененоием класса AdminDataTable, в классе Author добавил магический метод __toString(), чтобы можно было 
+вывести имя автора статьи в шаблоне )
 
 **Задания:**
 
