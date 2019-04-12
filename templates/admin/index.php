@@ -1,10 +1,11 @@
 <?php
+
 use App\AdminDataTable;
 use App\Models\Article;
 
 $functions = [
     function (Article $article) {
-    return $article->id;
+        return $article->id;
     },
     function (Article $article) {
         return $article->title;
@@ -15,7 +16,7 @@ $functions = [
     function (Article $article) {
         return $article->author_id;
     }
-    ];
+];
 ?>
 <!doctype html>
 <html lang="en">
@@ -50,11 +51,14 @@ $functions = [
     <h3>Articles</h3>
     <?php foreach ((new AdminDataTable($articles, $functions))->render() as $data): ?>
         <article>
+            <!-- Title -->
             <h4><?php echo $data[1]; ?></h4>
+            <!-- Content -->
             <div><?php echo $data[2]; ?></div>
+            <!-- Author -->
             <?php if (!empty($data[3])) : ?>
-                <p><b>Author: <?php echo (Article::findById($data[0])->author);
-                ?></b></p>
+                <p><b>Author: <?php echo(Article::findById($data[0])->author);
+                        ?></b></p>
             <?php endif; ?>
             <br>
             <a href="/admin/edit/<?php echo $data[0]; ?>">
