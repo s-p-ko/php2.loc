@@ -4,11 +4,14 @@ Start on the 4th of March 2019.
 
 Condition after the homework #7 of the 7th lesson. 
 
+
 14-04-2019
+
 
 **Домашнее задание №7**
 
 Информация для проверяющего:
+
 
 По п.**1. Реализацию смотреть**: class **Db** (App/Db.php), abstract class 
 **Model** 
