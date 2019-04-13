@@ -2,7 +2,12 @@
 
 namespace App;
 
-class AdminDataTable {
+/**
+ * Class AdminDataTable
+ * @package App
+ */
+class AdminDataTable
+{
 
     protected $models;
     protected $functions;
@@ -22,7 +27,8 @@ class AdminDataTable {
      * @param $template
      * @return string
      */
-    public function render($template) {
+    public function render($template)
+    {
         $view = new View();
         $view->models = $this->models;
         $view->functions = $this->functions;

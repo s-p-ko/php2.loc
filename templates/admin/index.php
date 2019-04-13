@@ -1,3 +1,8 @@
+<?php
+$functions = require __DIR__ . '/../../functions/adminDataTableFunctions.php';
+$template = __DIR__ . '/admindatatable.php';
+$table = new \App\AdminDataTable($articles, $functions);
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -29,10 +34,7 @@
 </div>
 <div>
     <h3>Articles</h3>
-    <?php
-    $table = new \App\AdminDataTable($articles, require __DIR__ . '/../../functions/adtFunctions.php');
-    ?>
-    <?php echo $table->render(__DIR__ . '/admindatatable.php'); ?>
+    <?php echo $table->render($template); ?>
 </div>
 </body>
 </html>

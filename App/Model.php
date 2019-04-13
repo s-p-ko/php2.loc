@@ -28,11 +28,11 @@ abstract class Model
 
     /**
      * Find one object or return false
-     * @param $id
+     * @param $id string
      * @return mixed
      * @throws Exceptions\DbException
      */
-    public static function findById(int $id)
+    public static function findById(string $id)
     {
         $db = new Db();
         $sql = 'SELECT * FROM ' . static::TABLE . ' WHERE id = :id';

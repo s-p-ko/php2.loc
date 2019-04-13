@@ -12,3 +12,12 @@ error | 2019-04-09 12:40:15 File: D:\OS\OSPanel\domains\php2.loc\App\Model.php L
 error | 2019-04-09 12:41:12 File: D:\OS\OSPanel\domains\php2.loc\App\Db.php Line: 32 Description: No database connection: SQLSTATE[HY000] [1049] Unknown database 'php2loc1'
 error | 2019-04-09 12:41:53 File: D:\OS\OSPanel\domains\php2.loc\App\Db.php Line: 32 Description: No database connection: SQLSTATE[HY000] [1049] Unknown database 'php2loc1'
 error | 2019-04-09 12:42:44 File: D:\OS\OSPanel\domains\php2.loc\App\Db.php Line: 32 Description: No database connection: SQLSTATE[HY000] [1049] Unknown database 'php2loc23'
+error | 2019-04-13 23:17:46 File: D:\OS\OSPanel\domains\php2.loc\App\Db.php Line: 32 Description: No database connection: SQLSTATE[HY000] [1049] Unknown database 'php2loc2'
+error | 2019-04-13 23:18:27 File: D:\OS\OSPanel\domains\php2.loc\App\Db.php Line: 32 Description: No database connection: SQLSTATE[HY000] [1049] Unknown database 'php2loc2'
+error | 2019-04-13 23:18:57 File: D:\OS\OSPanel\domains\php2.loc\App\Model.php Line: 144 Description: The field <b>title</b> is not filled.
+error | 2019-04-13 23:18:57 File: D:\OS\OSPanel\domains\php2.loc\App\Model.php Line: 144 Description: The field <b>content</b> is not filled.
+error | 2019-04-13 23:20:04 File: D:\OS\OSPanel\domains\php2.loc\App\Controllers\Article.php Line: 24 Description: Error 404 - Article with such id <b>jkui;o</b> not found
+error | 2019-04-13 23:20:13 File: D:\OS\OSPanel\domains\php2.loc\App\Controllers\Article.php Line: 24 Description: Error 404 - Article with such id <b>2234</b> not found
+error | 2019-04-13 23:21:44 File: D:\OS\OSPanel\domains\php2.loc\App\Model.php Line: 144 Description: The field <b>title</b> is not filled.
+error | 2019-04-13 23:21:44 File: D:\OS\OSPanel\domains\php2.loc\App\Model.php Line: 144 Description: The field <b>content</b> is not filled.
+error | 2019-04-13 23:21:53 File: D:\OS\OSPanel\domains\php2.loc\App\Model.php Line: 144 Description: The field <b>content</b> is not filled.
