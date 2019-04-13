@@ -13,11 +13,4 @@ class Author extends Model
     public const TABLE = 'authors';
     public $name;
 
-    /**
-     * @return string
-     */
-    public function __toString()
-    {
-        return $this->name;
-    }
 }
