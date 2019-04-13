@@ -19,7 +19,7 @@ findAllLast(int $limit = 3)
 .php
 
 По п.**3. Реализацию смотреть**: templates/admin/index.php, 
-templates/admin/admindatatable.php, functions/functions.php, 
+templates/admin/admindatatable.php, functions/adminDataTableFunctions.php
 
 
 **Задания:**
